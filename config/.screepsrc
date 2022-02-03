@@ -1,0 +1,55 @@
+; Enter your Steam API Key, you can generate one at https://steamcommunity.com/dev/apikey
+steam_api_key = {APIKEY}
+;The port number on which the game server should listen.
+port = 21025
+;The hostname on which the game server should listen.
+host = 0.0.0.0
+;The server password which should be provided on user sign in.
+password = 
+;The port number on which the CLI server should listen. Defaults to port+1.
+cli_port = 21026
+;The hostname on which the CLI server should listen.
+cli_host = localhost
+;The number of parallel runner threads in which player scripts are executed. Don't set this
+;option greater than the number of your physical CPU cores.
+runner_threads = 4
+;The number of room processor worker processes to launch. Don't set this
+;option greater than the number of your physical CPU cores.
+processors_cnt = 2
+
+; ########## DO NOT EDIT BELOW ##########;
+
+;The number of player runner worker processes to launch.
+;Setting this option to more than 1 will lead to multiple simultaneous global environments
+;for each player, it is not recommended for basic setup.
+runners_cnt = 1
+
+;The path to directory where logs will be created.
+logdir = logs
+
+;The path to JSON file with the list of custom mods to load.
+modfile = mods.json
+
+;The path to directory where static assets are located.
+assetdir = assets
+
+;The path to the database file.
+db = db.json
+
+;If set, forward console messages to terminal
+log_console = false
+
+;How many log files to keep when rotating.
+log_rotate_keep = 5
+
+;If set, disable built-in storage, useful when you use some other implementation.
+storage_disabled = true
+
+;Automatically restart child processes.
+restart_interval = 3600
+
+; Docker Network Settings
+[mongo]
+host = db
+[redis]
+host = redis

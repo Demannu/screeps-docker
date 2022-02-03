@@ -1,0 +1,15 @@
+build_image:
+    image: docker:stable
+    variables:
+        DOCKER_HOST: unix:///var/run/docker.sock
+        IMAGE_TAG: registry.demannu.com/demannu/screeps_docker:$CI_COMMIT_REF_SLUG
+    services:
+        - name: docker:dind
+
+    before_script:
+        - docker info
+
+    script:
+        - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD https://registry.demannu.com
+        - docker build -t $IMAGE_TAG .
+        - docker push $IMAGE_TAG

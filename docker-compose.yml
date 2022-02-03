@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:latest
+    restart: always
+
+  db:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - screeps_mongo:/data/db
+
+  screeps:
+    image: d_screeps:test
+    depends_on:
+      - db
+      - redis
+    restart: always
+    ports:
+      - "21025:21025"
+    environment:
+      STEAM_API_KEY: <steam key>
+    volumes:
+      - ./logs:/world/logs
+      - ./assets:/world/assets
+
+volumes:
+  screeps_mongo:
