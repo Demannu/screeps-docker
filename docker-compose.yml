@@ -12,7 +12,7 @@ services:
       - screeps_mongo:/data/db
 
   screeps:
-    image: d_screeps:test
+    image: registry.demannu.com/demannu/screeps_docker:master
     depends_on:
       - db
       - redis
@@ -20,10 +20,13 @@ services:
     ports:
       - "21025:21025"
     environment:
-      STEAM_API_KEY: <steam key>
+      STEAM_API_KEY: <steamkey>
+
     volumes:
-      - ./logs:/world/logs
-      - ./assets:/world/assets
+      - screeps_logs:/world/logs
+      - screeps_assets:/world/assets
 
 volumes:
   screeps_mongo:
+  screeps_logs:
+  screeps_assets:

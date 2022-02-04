@@ -2,10 +2,10 @@
 echo ${STEAM_API_KEY} | npx screeps init
 
 # Move .screepsrc template
-mv /world/.screepsrc-temp /world/.screeps-rc
+mv /world/.screepsrc-temp /world/.screepsrc
 
 # Update Steam API Key (again)
-sed -i "s/{APIKEY}/${STEAM_API_KEY}" /world/.screepsrc
+sed -i "s/{APIKEY}/${STEAM_API_KEY}/g" /world/.screepsrc
 
 # Copy the mod configuration over for defaults
 mv /world/mods.json-temp /world/mods.json
