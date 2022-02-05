@@ -1,5 +1,5 @@
 ; Enter your Steam API Key, you can generate one at https://steamcommunity.com/dev/apikey
-steam_api_key = {APIKEY}
+steam_api_key = 
 ;The port number on which the game server should listen.
 port = 21025
 ;The hostname on which the game server should listen.
