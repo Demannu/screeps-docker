@@ -13,7 +13,7 @@ Run the stack with
 
 Setup the database by resetting once
 
-`docker exec <screeps container> /world/resetData.sh`
+`docker exec <screeps container> resetData.sh`
 
 Access the server via a Screeps client, pointing at the docker host
 
