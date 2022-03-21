@@ -1,2 +1,3 @@
 assets/
 logs/
+docker-compose-local.yml

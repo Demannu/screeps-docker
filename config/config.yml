@@ -1,0 +1,8 @@
+serverConfig:
+  tickRate: 1000
+  welcomeText: |
+    <h1>Screeps Docker Server</h1>
+    <span>Powered by magic.. and <a href='http://github.com/Demannu/screeps-docker'>Screeps Docker</a></span>
+  maxCPU: 600
+  baseCPU: 500
+  stepCPU: 50

@@ -29,6 +29,7 @@ services:
 
     volumes:
       - ./config/mods.json:/world/mods.json
+      - ./config/config.yml:/world/config.yml
       - screeps_logs:/world/logs
       - screeps_assets:/world/assets
       - screeps_modules:/world/node_modules

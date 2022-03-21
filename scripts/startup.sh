@@ -21,14 +21,20 @@ if [ -n "$SCREEPS_CLI_HOST" ]; then
     ARGLIST+="--cli_host $SCREEPS_CLI_HOST "
 fi
 
-# Initialize map, generate thumbnails, and authenticate with API Key
-echo ${STEAM_API_KEY} | npx screeps init
+# Check if server has been inited before
+if [ ! -f "/world/.inited" ]; then
+    # Initialize map, generate thumbnails, and authenticate with API Key
+    echo ${STEAM_API_KEY} | npx screeps init
 
-# Move .screepsrc template
-mv /world/.screepsrc-temp /world/.screepsrc
+    # Move .screepsrc template
+    mv /world/.screepsrc-temp /world/.screepsrc
 
-# Copy the mod configuration over for defaults
-mv /world/mods.json-temp /world/mods.json
+    # Copy the mod configuration over for defaults
+    mv /world/mods.json-temp /world/mods.json
+
+    # Touch file to signal the server has been init'd once
+    touch /world/.inited
+fi
 
 # Finally start the server
 npx screeps start --steam_api_key $STEAM_API_KEY $ARGLIST

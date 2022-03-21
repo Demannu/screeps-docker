@@ -53,3 +53,8 @@ restart_interval = 3600
 host = db
 [redis]
 host = redis
+
+; Map Mod Auth
+[maptool]
+user = admin
+pass = REPLACEME

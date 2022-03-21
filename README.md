@@ -13,7 +13,8 @@ Run the stack with
 
 Setup the database by resetting once
 
-`docker exec <screeps container> resetData.sh`
+`docker exec <screeps container> /resetData.sh`
 
 Access the server via a Screeps client, pointing at the docker host
 
+The configuration files are available by default in `./config/`, it will require a container restart to have the config changes take effect
