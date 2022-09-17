@@ -1,15 +1,19 @@
-build_image:
-    image: docker:stable
+stages:
+    - build
+
+build-image:
+    image: docker:dind
+    stage: build
     variables:
-        DOCKER_HOST: unix:///var/run/docker.sock
-        IMAGE_TAG: registry.demannu.com/demannu/screeps_docker:$CI_COMMIT_REF_SLUG
-    services:
-        - name: docker:dind
-
+        IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     before_script:
-        - docker info
-
+        - dockerd > /var/log/dockerd.log 2>&1 &
     script:
-        - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD https://registry.demannu.com
-        - docker build -t $IMAGE_TAG .
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -t $IMAGE_TAG -t $CI_REGISTRY_IMAGE:latest .
         - docker push $IMAGE_TAG
+        - docker push $CI_REGISTRY_IMAGE:latest
+    only:
+        - main
+    tags:
+        - felucia
