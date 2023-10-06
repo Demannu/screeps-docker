@@ -1,5 +1,12 @@
 #!/bin/bash
 ARGLIST=""
+
+# Required variables
+if [ -z "$STEAM_API_KEY" ]; then
+    echo "Missing STEAM_API_KEY! The server will not run without that"
+    exit 1
+fi
+
 # Check for docker environment variables
 if [ -n "$SCREEPS_PORT" ]; then
     ARGLIST+="--port $SCREEPS_PORT "
