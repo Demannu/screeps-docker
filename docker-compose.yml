@@ -33,12 +33,8 @@ services:
       SCREEPS_CLI_HOST: localhost
 
     volumes:
-      - screeps_logs:/world/logs
-      - screeps_assets:/world/assets
-      - screeps_modules:/world/node_modules
+      - screeps_world:/world
 
 volumes:
   screeps_mongo:
-  screeps_logs:
-  screeps_assets:
-  screeps_modules:
+  screeps_world:
