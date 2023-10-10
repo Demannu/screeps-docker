@@ -17,12 +17,6 @@ runner_threads = 4
 ;option greater than the number of your physical CPU cores.
 processors_cnt = 2
 
-; Mod Specific Configurations
-; Map Mod Auth
-[maptool]
-user = admin
-pass = REPLACEME
-
 ; ########## DO NOT EDIT BELOW ##########;
 
 ;The number of player runner worker processes to launch.
@@ -59,3 +53,10 @@ restart_interval = 3600
 host = db
 [redis]
 host = redis
+
+### MOD SETTINGS HERE ###
+; Mod Specific Configurations
+; Map Mod Auth
+[maptool]
+user = admin
+pass = REPLACEME
